@@ -1,0 +1,31 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "useomnia",
+  "owner": {
+    "name": "Omnia",
+    "url": "https://www.useomnia.com"
+  },
+  "metadata": {
+    "description": "Agent skills from the team at Omnia (useomnia.com)."
+  },
+  "plugins": [
+    {
+      "name": "website-migration",
+      "description": "Migrate a site built on Webflow, WordPress, Framer or any hosted CMS into a static Astro site in git: same look, URLs and content, cleaner components, verified with visual and SEO audits.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/website-migration"
+      ],
+      "category": "development",
+      "keywords": [
+        "astro",
+        "webflow",
+        "migration",
+        "static-site",
+        "seo"
+      ],
+      "homepage": "https://github.com/useomnia/skills/tree/main/skills/website-migration"
+    }
+  ]
+}
