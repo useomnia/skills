@@ -4,8 +4,8 @@ Read before phase 0. Each one cost real time in a migration this skill is based 
 
 - **Analytics leak.** Screenshot runs against localhost loaded the production analytics tags and recorded
   pageviews. Gate every tag by the production hostname from the first commit.
-- **Ambiguous agent budget.** "At most 5 agents" can mean total or concurrent. Ask, and state your
-  reading when you start.
+- **Ambiguous agent budget.** "At most 5 agents" can mean total or concurrent. Ask how many agents may
+  run in parallel (and whether the total is capped), and state your plan when you start.
 - **Progress claims without changes.** An agent reported work that was not on disk. Check `git status`
   and `git diff` before accepting any report.
 - **Framework cache quirks.** Content schemas kept outside the framework's main config were not

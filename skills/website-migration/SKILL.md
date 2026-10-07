@@ -66,7 +66,7 @@ already stated. Typical questions:
 | Locales | Astro's native i18n routing: templates and components shared, content duplicated per locale as files, only UI microcopy in typed dictionaries |
 | Styling | Tailwind CSS v4 through `@tailwindcss/vite`, with only the design tokens taken from the source CSS (default palette disabled); or tokens + scoped `<style>` in `.astro` components |
 | Git hosting | See step 4 |
-| Agent budget | A total number of subagents (say "total" or "concurrent" explicitly) |
+| Agents in parallel | Ask how many agents may run at the same time (recommend 2: one per layer or domain, so file ownership never overlaps), and whether there is a cap on the total |
 | Tracking | Where to keep the per-phase task list and the "Flagged for owner" list (an existing doc tool, an issue tracker, or a `MIGRATION.md` in the repo) |
 | Deliberate deviations | Fix obvious live bugs and list them; keep everything else exactly as live |
 | Product naming | Whether there are naming rules or renamed products the copy must follow |
@@ -117,8 +117,8 @@ The phases, their deliverables and their gates are in `references/phases.md`. Su
 | Phase | Who | Delivers |
 | --- | --- | --- |
 | 0. Capture and foundation | You, no subagents | Crawl cache of the live site, QA tools, the Astro project and its integrations, `AGENTS.md`, routing, i18n, layout, one reference section |
-| 1. Design system and content | 2 agents in parallel, split by layer | Section catalog, every static page, typed content collections in every locale |
-| 2. Templates and listings | 2 agents in parallel, split by domain | Every collection detail page and listing, feeds, page-specific JSON-LD |
+| 1. Design system and content | Agents in parallel, split by layer | Section catalog, every static page, typed content collections in every locale |
+| 2. Templates and listings | Agents in parallel, split by domain | Every collection detail page and listing, feeds, page-specific JSON-LD |
 | 3. QA and hardening | 1 agent | Component consolidation, full audits, visual, accessibility, performance, hosting checks |
 | Cutover | The user, with you | Owner decisions applied, DNS switched, sitemaps submitted (`references/cutover.md`) |
 
@@ -132,8 +132,10 @@ the Astro project as described in `references/astro.md` before the foundation.
   theirs), ordered tasks, gates, and the report schema.
 - Subagents never spawn subagents and never commit; you review and commit. Parallel agents share one
   dev server, and only one production build runs at a time.
-- Split parallel work so ownership never overlaps: by layer (UI vs data) or by domain (editorial vs
-  catalog), never by page.
+- Never run more agents at once than the user allowed. Split parallel work so ownership never overlaps:
+  by layer (UI vs data) or by domain (editorial vs catalog), never by page. With one agent at a time,
+  run the roles of a phase one after another; with more than two, split by domain within each layer
+  (e.g. one agent per collection family).
 - Check every report against the disk (`git status`, `git diff`) before accepting it. Feed its open
   issues and notes into the next phase's brief, and add owner decisions to the flagged list.
 

@@ -1,7 +1,9 @@
 # Phases
 
 Each phase ends with its gate, a commit and a push. A phase's reports feed the next phase's brief.
-Agent counts assume a budget of about five subagents in total; scale them to the user's budget.
+Agent counts assume 2 agents in parallel, as recommended in the interview. Scale to the number the user
+chose: with 1, run the roles of a phase one after another; with more, split each role by domain so file
+ownership never overlaps.
 
 ## Phase 0: capture and foundation (orchestrator only)
 
@@ -21,7 +23,7 @@ Agent counts assume a budget of about five subagents in total; scale them to the
 5. **Gate:** type check with 0 errors, build passes, the reference section matches live in the visual
    diff. Commit and push.
 
-## Phase 1: design system and content (2 agents in parallel, split by layer)
+## Phase 1: design system and content (agents in parallel, split by layer)
 
 **Design-system agent** (owns components, styles, layouts, page content files, page extractors):
 
@@ -53,7 +55,7 @@ Agent counts assume a budget of about five subagents in total; scale them to the
 **Gate:** static pages within tolerance in the visual diff; the verify script passes; type check and
 build green.
 
-## Phase 2: templates and listings (2 agents in parallel, split by domain)
+## Phase 2: templates and listings (agents in parallel, split by domain)
 
 For example, an editorial agent (blog, knowledge base, changelog, authors, categories) and a catalog
 agent (comparisons, alternatives, use cases, case studies). They own different template folders and

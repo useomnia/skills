@@ -8,7 +8,8 @@ migration is done, offer to rewrite them. Run it as its own project, with its ow
 - The source-of-truth locale and the target locales.
 - Register and variety (e.g. Spain Spanish with informal "tú"; Brazilian or European Portuguese).
 - Whether slugs and collection folders are translated, and old URLs 301.
-- Agent budget: one translator and one native editor per batch of files works well.
+- How many agents may run in parallel: one translator and one native editor per batch of files works
+  well, with as many batches at once as the user allows.
 - Product entities and doubtful terms: ask in batches of up to four questions, each with a recommended
   rendering. Never decide a product name alone.
 

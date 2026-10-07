@@ -32,7 +32,7 @@ Ask your agent something like *"Migrate www.example.com from Webflow to Astro"*.
 
 1. **Discovers** the source platform, the site's size, your installed CLIs and connected MCP servers.
 2. **Interviews you once** about what it cannot detect: deployment platform, git hosting, locales,
-   styling, agent budget, and where to track the work.
+   styling, how many agents may run in parallel, and where to track the work.
 3. **Finds connectors** for your CMS and your host (MCP servers, CLIs or APIs) by searching the web,
    and walks you through connecting them without pasting secrets into the chat.
 4. **Sets up git**: if you have a GitHub account it creates the repository, sets it as `origin`, and
